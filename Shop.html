@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title></title>
+        <style>
+           #container{
+               display: grid;
+               grid-template-columns: repeat(3,1fr);
+           }
+           img{
+               width: 300px;
+               height:300px;
+           }
+           .p2{
+               text-decoration: line-through;
+           }
+           #flex{
+               display: flex;
+               gap: 70px;
+           }
+        </style>
+    </head>
+    <body>
+       <h1>Shop</h1> 
+       <div id="container"></div>
+     
+    </body>
+    
+</html>
+<script>
+    var ShopData=[
+            {
+                image_url:"https://cdn.shopify.com/s/files/1/0057/8938/4802/products/616b4ead-bbd9-4a16-aeab-8d331a16f697_720x.png?v=1642405569",
+                name:"BOAT Airdopes 131 - Wireless Earbuds",
+                price:"Rs. 899.00",
+                originalprice:"Rs. 1,999.00"
+            
+            },
+            {
+                image_url:"https://cdn.shopify.com/s/files/1/0057/8938/4802/products/245v2_main_1.png?v=1627276362",
+                name:"boAt Rockerz 245 V2 BLUETOOTH EARPHONES",
+                price:" Rs. 799",
+                originalprice:"Rs. 1,999.00"
+
+            },
+            {
+                image_url:"https://cdn.shopify.com/s/files/1/0057/8938/4802/products/main2_529ecf13-c993-4fe7-a2d6-9357f1a47db4_720x.png?v=1640628077",
+                name:"boAt Watch Xtend‌",
+                price:"Rs. 2,799.00",
+                originalprice:"Rs. 7,999.00"
+            },
+            {
+                image_url:"https://cdn.shopify.com/s/files/1/0057/8938/4802/products/mint--orange_720x.png?v=1634371640",
+                name:"TRebel BassHeads 100",
+                price:"Rs. 399.00",
+                originalprice:"Rs. 599.00"
+            },
+            {
+                image_url:"https://cdn.shopify.com/s/files/1/0057/8938/4802/products/1200f_main3_720x.png?v=1632893559",
+                name:"BOAT Stone 1200F",
+                price:"Rs. 3,999.00",
+                originalprice:"Rs. 6,999.00"
+            },
+            {
+                image_url:"https://cdn.shopify.com/s/files/1/0057/8938/4802/products/aavante-bar-1800-1.png?v=1613736244",
+                name:"Aavante Bar 1800",
+                price:"Rs. 6,999.00",
+                originalprice:"Rs,16,000.00",
+
+            },
+            {
+                image_url:"https://cdn.shopify.com/s/files/1/0057/8938/4802/products/rgged-v3.png?v=1613736788",
+                name:"Rugged V3 Micro USB 1.5 Meter",
+                price:"Rs. 149.00",
+                originalprice:"Rs. 799.00",
+            },
+            {
+                image_url:"https://cdn.shopify.com/s/files/1/0057/8938/4802/products/64a076e9-ef0c-443d-b86e-16715212dd92.png?v=1631788202",
+                name:"Limited Edition",
+                price:"Rs. 1,199.00",
+                originalprice:"Rs. 2,490.00",
+            },
+            {
+                image_url:"https://cdn.shopify.com/s/files/1/0057/8938/4802/products/airdopes-441-pro-blue_b1e6cf66-5294-4b8c-ba62-f2cf6e3b80a3.png?v=1614540751",
+                name:"TRebel Airdopes 441 Pro",
+                price:"Rs. 2,999.00 ",
+                originalprice:"Rs. 5,999.00",
+            },
+            {
+                image_url:"https://cdn.shopify.com/s/files/1/0057/8938/4802/products/963d0725-90b9-42a4-9fcc-a842968cfee4.png?v=1625045778",
+                name:"Misfit T200",
+                price:"Rs. 1,151.00",
+                originalprice:"Rs. 3,999.00",
+            },
+            {
+                image_url:"https://cdn.shopify.com/s/files/1/0057/8938/4802/products/2_f3aa2756-01f3-4e39-80bc-7b4f6551c7aa.png?v=1625748159",
+                name:"boAt Immortal 1000D",
+                price:"Rs. 2,499.00",
+                originalprice:"Rs. 5,990.00",
+            },
+    ]
+   ShopData.map(function(data){
+       var div = document.createElement("div");
+
+       var image = document.createElement("img");
+       image.setAttribute("src",data.image_url)
+
+       var name=document.createElement("p");
+       name.textContent=data.name;
+
+       var div2=document.createElement("div");
+       div2.setAttribute("id","flex");
+        var p1=document.createElement("p");
+        p1.textContent=data.price;
+
+
+        var p2=document.createElement("p");
+
+        p2.textContent=data.originalprice;
+        p2.style.textDecoration="line-through";
+        div2.append(p1,p2)
+
+       div.append(image,name,div2)
+
+       document.querySelector("#container").append(div)
+   })
+
+</script>
