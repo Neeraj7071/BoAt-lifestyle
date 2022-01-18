@@ -1,0 +1,67 @@
+			.offer{
+				background-color: red;
+			}
+			.nav_bar{
+				background-color: black;
+				display:flex;
+				border: 1px solid blue;
+				justify-content:space-between;
+				height: 100px;
+				color: white;
+				margin-left: 50px;
+			}
+	
+			img{
+				width: 100px;
+				height: 40px;
+				margin: 16%;
+			}
+			#nav_cen{
+				margin: auto;
+				display: flex;
+				/*border: 1px solid red;*/
+			}
+			#nav_right>div{
+				margin-top:25px;
+			}
+			a{
+				display: inline-block;
+				color: white;
+				text-align: center;
+				padding: 14px 16px;
+				text-decoration: none;
+			}
+			#boat_more {
+			  position: relative;
+			  display: inline-block;
+			}
+			#aborder{
+				border-left: 2px solid red ;
+			}
+
+			#boat_more_list {
+			  display: none;
+			  position: absolute;
+			  background-color: #1a1a1a;
+			  min-width: 180px;
+			  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+			  padding: 12px 16px;
+			  z-index: 1;
+			}
+
+			#boat_more:hover #boat_more_list {
+			  display:block;
+			  /*grid: column;*/
+			}
+			#search{
+				box-sizing: border-box;
+				border: 2px solid #ccc;
+				border-radius: 20px;
+				font-size: 16px;
+				background-color: white;
+				background-size: 25px 25px;
+				background-image:url(https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRzwZTv9rVnF4l1BGcm5r9tBRRCseric6MyW8QgMMGl3qbWruOGHpWpxI6Sa6ByQZh-LdA&usqp=CAU);
+				background-position: 10px 10px; 
+				background-repeat: no-repeat;
+				padding: 12px 20px 12px 40px;
+			}
