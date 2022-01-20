@@ -4,7 +4,8 @@
 		<meta charset="utf-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1">
 		<title>boat home</title>
-		<link rel="stylesheet" type="text/css" href="header.css">
+		<link rel="stylesheet" href="header.css">
+		<link rel="stylesheet" href="home_center.css">
 	</head>
 	<body>
 		<h1 class="offer"></h1>
@@ -14,7 +15,7 @@
 			</div>
 			<div id="nav_cen">
 				<div id="boat_more">
-					<a href="Shop.html"><p>Shop</p></a>
+					<a href=""><p>Shop</p></a>
 					<div id="boat_more_list" class="boat_more_list"></div>
 				</div>
 				<div id="marvel">
@@ -48,13 +49,35 @@
 			</div>
 			<div id="nav_right">
 				<div>
-				<input type="search" placeholder="Search..." id="search">
-				<i class="fas fa-gift  fa-1.5x"></i>
-				<i class="fas fa-user-circle fa-1.5x"></i>
-				<i class="fas fa-shopping-cart fa-1.5x"></i>
+						<select type="search" id="search">
+							<option value="" disabled selected>Search...</option>
+							<option value="1">Wireless Earphones</option>
+							<option value="2">Smart Watches</option>
+							<option value="3">True Wireless Earbuds</option>
+							<option value="4">Wireless Headphones</option>
+							<option value="5">Speakers</option>
+							<option value="6">Wired Earphones</option>
+						</select>
+						<i class="fas fa-gift  fa-1.5x" style="margin-left:10px"></i>
+						<i class="fas fa-user-circle fa-1.5x" style="margin-left:10px"></i>
+						<i class="fas fa-shopping-cart fa-1.5x" style="margin-left:10px"></i>
 				</div>
 			</div>
 		</div>
+		<div id="slider">
+		    <ul id="slideWrap">
+		    </ul>
+		    <a id="prev" href="#">&#8810;</a>
+		    <a id="next" href="#">&#8811;</a>
+		</div>
+		<marquee direction="left" behavior="scoll" ><h2 style="color:white;">FLAUNT YOUR FITNSS FLAUNT YOUR FITNSS FLAUNT YOUR FITNSS FLAUNT YOUR FITNSS FLAUNT YOUR FITNSS FLAUNT YOUR FITNSS</h2></h2></marquee>
+
+
+		<div id="brand"><img src="https://cdn.shopify.com/s/files/1/0057/8938/4802/files/Fotter-Awards_900x.jpg?v=1633930093"></div>
+		<marquee direction="left" behavior="scoll" ><h2 style="color:white;">India's No.1 Earwear Audio Brand.India's No.1 Earwear Audio Brand.India's No.1 Earwear Audio Brand.India's No.1 Earwear Audio Brand.</h2></marquee>
+		<img src="boat-lifestyle-footer.jpg" id="footer">
 	</body>
 </html>
-<script src="https://kit.fontawesome.com/629044acfa.js" crossorigin="anonymous"></script>
+<script src="https://kit.fontawesome.com/629044acfa.js" crossorigin="anonymous"></script><script type="text/javascript" src="home_header.js">
+</script>
+<script type="text/javascript" src="home_center.js"></script>
