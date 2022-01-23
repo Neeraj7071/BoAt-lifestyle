@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+
+
+
+
+        #myform {
+            
+            display: inline-block;
+            margin-left: 500px;
+        }
+        .container {
+            border: 1px solid red;
+            display: inline-block;
+        }
+        img {
+            width: 100px;
+            height: 50px;
+        }
+        .icon{
+            width: 40px;
+            height: 40px;
+        }
+        #cartid {
+         
+            display: inline-block;
+
+        }
+        #cartid2 {
+            
+            display: inline-block;
+        }
+        
+        #logorsign {
+           
+            display: inline-block;
+        
+            margin-top: 50px;
+            
+
+        }
+        #logorsign1 {
+            
+            margin-left: 10px;
+            display: inline-block;
+            margin-top: -50px;
+        }
+        .logorsign2 {
+            
+            
+            background-color: rgb(219, 38, 38);
+            color: white;
+            width: 200px;
+            height: 30px;
+            border-radius: 10px;
+
+        }
+        #signallign {
+            
+            display: inline-block;
+            margin-left: 10px;
+        }
+        p {
+            margin-left: 20px;
+            font-size: 17px;
+        }
+        .inputsize{
+            width: 435px;
+        }
+        #fname {
+            display: inline-block;
+            
+        }
+        
+        #lname {
+            display: inline-block;
+            
+        }
+        .fnamewidth {
+        
+            width: 200px;
+        }
+        .lnamewidth {
+            width: 200px;
+            margin-left: 20px;
+        }
+        #addalign {
+            display: inline-block;
+        }
+        #subalign {
+            margin-left: 100px;
+        }
+
+    </style>
+</head>
+<body>
+    <form id="myform">
+    <div class="Container">
+        
+            <div>
+            <img class="imgclass" src="https://support.boat-lifestyle.com/images/Boat-Logo_2.png">
+            </div>
+            <div id="cartid">
+            <a href="Cart.html" >Cart ></a>
+            </div>
+            <div id="cartid2">
+                <a href="payment.html">Payment</a>
+            </div>
+            <br>
+            <div id="logorsign">
+                <img class="icon" src="https://www.kindpng.com/picc/m/192-1925162_login-icon-png-transparent-png.png">
+            </div>
+            <div id="logorsign1">
+                <p>Already have an account?</p>
+            </div>
+            <div id="signallign">
+            <input class="logorsign2 "type="submit" value="signin/Signup">
+            </div>
+        
+        <div>
+            <h3>DELIVERY ADDRESS</h3>
+        </div>
+        <div>
+        <p>email<span style="color: red;">*</span></p>
+        <input id="emailadd" class="inputsize"type="email" placeholder="Email">
+        </div>
+        <div>
+            <p>Country/region<span style="color: red;">*</span></p>
+            <input id="country" class="inputsize" type="text" placeholder="Country">
+            </div>
+            <div>
+                <div id="fname"><p>firstname<span style="color: red;">*</span></p>
+                    <input  id="fname" class="fnamewidth" type="text" placeholder="firstname"></div>
+                    <div id="lname"><p>lastname<span style="color: red;">*</span></p>
+                        <input  id="lname" class="lnamewidth" type="text" placeholder="lastname"></div>
+            </div>
+            <div>
+            <div >
+                <p>Address<span style="color: red;">*</span></p>
+            <input  id="Address" class="inputsize" type="text" placeholder="location/street">
+            </div>
+            <div id="addalign">
+                <p>City<span style="color: red;">*</span></p>
+            <input id="city" class="fnamewidth"  type="text" placeholder="City">
+            </div>
+            
+            
+                <div id="addalign" >
+                    <p>State<span style="color: red;">*</span></p>
+                <input  id="state" class="lnamewidth"  type="text" placeholder="State">
+                </div>
+                <div>
+                <div id="addalign">
+                    <p>Pin<span style="color: red;">*</span></p>
+                <input  id="pin" class="fnamewidth" type="text" placeholder="Enter Pin">
+                </div>
+            </div>
+            <div id="addalign">
+                <p>Phone<span style="color: red;">*</span></p>
+            <input id="phone" class="fnamewidth" type="text" placeholder="Enter Phone">
+            </div>
+            </div>
+            <div id="addalign"><input type="checkbox"></div>
+
+            <div id="addalign" ><p>save information for future references</p></div>
+            <div >
+                <a href="checkout.html">
+                <input  class="logorsign2" id="subalign" type="submit" value="Continue to Payment">
+                </a>
+            </div>
+            
+            
+
+    </div>
+    </form>
+
+</body>
+</html>
+<script>
+     document.querySelector("#myform").addEventListener("submit",formSubmit);
+     var userAddress=JSON.parse(localStorage.getItem("UserAddData")) || [];
+    function formSubmit(event)
+    {
+        event.preventDefault();
+        var emailadd=document.querySelector("#emailadd").value;
+        var fName=document.querySelector("#fname").value;
+        var sName=document.querySelector("#lname").value;
+        var country=document.querySelector("#country").value;
+        var Address=document.querySelector("#Address").value;
+        var state=document.querySelector("#state").value;
+        var city=document.querySelector("#city").value;
+        var pin=document.querySelector("#pin").value;
+        var phone=document.querySelector("#phone").value;
+       
+
+        var userAddData= {
+            emailadd:emailadd,
+            fName:fname,
+            sName:lname,
+            country:country,
+            Address:Address,
+            state:state,
+            city:city,
+            pin:pin,
+            phone:phone
+        }
+        userAddress.push(userAddData);
+        localStorage.setItem("UserAddData",JSON.stringify(userAddress));
+        console.log(userAddress);
+        window.location.href="checkout.html";
+
+    }
+</script>

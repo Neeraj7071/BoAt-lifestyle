@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #container {
+            flex-direction: column;
+            display: inline-block;
+            
+            margin: auto;
+            margin-left: 200px;
+        }
+        .box {
+            
+            display: inline-block;
+            margin-left: 200px;
+            
+
+            
+        }
+        .inputsize {
+            margin: 20px;
+            width: 150px;
+            text-align: center;
+        }
+        h1 {
+            text-align: center;
+            color: red;
+        }
+        .con1 {
+           
+            margin-left: 380px;
+            
+            
+        }
+
+        #sizing {
+            width: 300px;
+            margin-left: -50px;
+            
+            
+        }
+        #subsize {
+            width: 80px;
+            background-color: red;
+            color: white;
+            border-radius: 10px;
+            font-size: 17px;
+            
+        }
+        .inputsize1 {
+            margin-left: 50px;
+        }
+    </style>
+</head>
+<body>
+    <form class="box">
+    <div>
+        <div id="container">
+        <div>
+            <h1>Check Out</h1>
+        </div>
+        <div>
+            <img src="https://www.forbes.com/advisor/wp-content/uploads/2019/06/DebitCardStandard-e1560523069690.jpg">
+        </div>
+        </div>
+        <div  class="con1">
+            <div class="inputsize">
+            <input id="name" id="sizing" type="text"   placeholder="Enter Name">
+            </div>
+            <div class="inputsize">
+            <input  id="cardno " id="sizing" type="number" placeholder="Card number">
+            </div>
+            <div class="inputsize">
+            <input id="cvv" type="number" placeholder="CVV">
+            </div>
+            <div class="inputsize">
+            <input  id="otp"type="number" placeholder="Enter OTP">
+            </div>
+            <div class="inputsize1">
+            <h1  id="subsize" ><a href="Paysucces.html">submit</a></h1>
+          
+            </div>
+        </div>
+
+    </div>
+    </form>
+</body>
+</html>
+<script>
+    document.querySelector("form").addEventListener("submit",formSubmit);
+     var userStack=JSON.parse(localStorage.getItem("UserDataBase")) || [];
+    function formSubmit(event)
+    {
+        event.preventDefault();
+        var Name=document.querySelector("#name").value;
+        var cardno=document.querySelector("#cardno").value;
+        var cvv=document.querySelector("#cvv").value;
+        var otp=document.querySelector("#otp").value;
+        // console.log(fName,sName,email,pass);
+
+        var userData= {
+            firstName:fName,
+            secondName:sName,
+            emailId:email,
+            password:pass
+        }
+        if(userData.emailId=="")
+        {
+            alert("Enter Email Id");
+        }
+        if(userData.password=="")
+        {
+            alert("Enter password");
+        }
+        userStack.push(userData);
+        // console.log(userStack);
+        localStorage.setItem("UserDataBase",JSON.stringify(userStack));
+        if(userData.emailId=="")
+        {
+            alert("Enter Email Id");
+        }
+        if(userData.password=="")
+        {
+            alert("Enter password");
+        }
+        window.location.href="signin.html";
+        // document.form.reset();
+    }
+</script>

@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="product_category.css">
+    <style>
+        html {
+            scroll-behavior: smooth;
+        }
+        
+        .head {
+            background-color: red;
+            display: inline-block;
+            padding-top: 5px;
+        }
+    
+        #collection {
+            background-color: red;
+            border-radius: 15px;
+            display: inline-block;
+        
+            margin-left: 100px;
+            margin-top: 150px;
+            margin-bottom: 100px;
+
+          
+            
+            
+        }
+        .head>p {
+            font-size: 15px;
+            margin-left: 20px;
+            margin-right: 20px;
+            color: white;
+            font-weight: 700;
+            margin-top: -1px;
+            font-family: sans-serif;
+            
+        }
+        #collection>h4 {
+            text-align: center;
+            font-size: 17px;
+            color: white;
+            margin-left: 20px;
+            margin-right: 20px;
+            margin-bottom: -1px;
+            margin-top: -1px;
+            padding: 10px;
+            
+        }
+        #img_empty {
+            margin-left: 150px;
+            margin-top: 50px;
+            width: 130px;
+            
+        }
+
+        .coupon{
+            display: none;
+        }
+
+    </style>
+</head>
+<body>
+       
+        
+<div class="out">
+    </div>
+         <div class="cart_empty">
+            <div class="head">
+                <p>Free Shipping sitewide | Cash On Delivery available <h3>for order value upto ₹3000</h3></p>
+            </div>
+            <div id="img_empty">
+               <img src="https://cdn.shopify.com/s/files/1/0057/8938/4802/files/bag_925d9ab5-b7d8-4b86-bfc5-2cb9b4df471e.png?v=1633452372">
+            </div>
+            <div>
+                <h2>Your shopping Bag is Empty.</h2>
+            </div>
+            
+
+            <div id="collection">
+                <h4 onclick="home1()">Go To Our Collection</h4>
+            </div>
+        </div>
+    
+    <div class="coupon">
+    <input id="applycoupon" type="text" list="coupons"placeholder="Enter coupon code"><button id="coupon">Apply coupon</button>
+
+    <h1>Total Price</h1><h2 id="total_price"></h2>
+    <button id="checkout" onclick="payment()">Checkout</button>
+</div>
+
+    <datalist id="coupons">
+        <option value="masai30">
+        <option value="masai50">
+        <option value="masai500">
+    </datalist>
+</body>
+</html>
+<script type="text/javascript">
+    var cartArr=JSON.parse(localStorage.getItem("CartItems"));
+    var dis=0;
+    var per=0;
+    var total=0;
+
+
+
+    console.log(cartArr.length)
+    if(cartArr.length>0){
+        document.getElementsByClassName("coupon")[0].setAttribute("style","display:inline;")
+        document.getElementsByClassName("cart_empty")[0].setAttribute("style","display:none")
+    create_table(cartArr)}
+    else{
+        document.getElementsByClassName("coupon")[0].setAttribute("style","display:none;")
+        document.getElementsByClassName("cart_empty")[0].setAttribute("style","display:inline;")
+    }
+    
+
+
+    function create_table(data){
+document.getElementsByClassName("out")[0].innerHTML="";
+    data.map(function(elem) {
+       var div=document.createElement("div");
+            div.setAttribute("class","product");
+
+            var img1=document.createElement("img");
+            img1.setAttribute("src",elem.image_url);
+            img1.setAttribute("class","img-main");
+
+            var img2=document.createElement("img");
+            img2.setAttribute("src",elem.image_url2);
+            img2.setAttribute("class","img-hide");
+
+
+             var p=document.createElement("p")
+             var s1=document.createElement("span");
+             s1.setAttribute("class","fa fa-star checked");
+
+             var s2=document.createElement("span");
+             s2.setAttribute("class","fa fa-star checked");
+
+             var s3=document.createElement("span");
+             s3.setAttribute("class","fa fa-star checked");
+
+             var s4=document.createElement("span");
+             s4.setAttribute("class","fa fa-star checked");
+
+             var s5=document.createElement("span");
+             s5.setAttribute("class","fa fa-star");
+
+            p.append(s1,s2,s3,s4,s5);
+
+            var h3=document.createElement("h3");
+            h3.innerHTML=elem.name;
+
+            var h4=document.createElement("h4");
+            h4.innerHTML=elem.price+'<span class="strik">'+elem.originalprice+'</span>';
+
+            var ul=document.createElement("ul");
+            ul.setAttribute("class","dis");
+
+            var li1=document.createElement("li");
+            li1.innerHTML="<span>Water ragistence</span>";
+
+            var li2=document.createElement("li");
+            li2.innerHTML="<span>Best selling</span>";
+
+            var li3=document.createElement("li");
+            li3.innerHTML="<span>light weight</span>";
+
+            ul.append(li1,li2,li3);
+
+            var btn = document.createElement("button");
+            btn.textContent = "remove item";
+            btn.addEventListener("click",function(){
+            deleteToCart(elem);
+        })
+
+            div.append(img1,img2,p,h3,h4,ul,btn)
+            // di.append(div);
+       
+    document.querySelector(".out").append(div)
+
+})}
+
+document.getElementById("coupon").addEventListener("click",function(){
+        var val=document.querySelector("#applycoupon").value;
+        if(val=="masai30")
+        {
+            alert("coupon successfully apply");
+            per=30;
+            dis=0;
+            show_price();
+
+        }
+        else if(val=="masai50")
+        {
+            alert("coupon successfully apply");
+            per=50;
+            dis=0;
+            show_price();
+
+        }
+        else if(val=="masai500")
+        {
+            alert("coupon successfully apply");
+            dis=500;
+            per=0;
+            show_price();
+
+        }
+        else{
+            alert("you enter wrong coupon code please try again")
+        }
+
+    });
+show_price();
+ function show_price(){
+    try{
+    total=cartArr.reduce(function(acc,cv){
+        return acc+Number(cv.price);
+    },0);
+
+    total=((total-dis)/100)*(100-per);
+    total=Math.ceil(total);
+    var striktotal=cartArr.reduce(function(acc,cv){
+        return acc+Number(cv.originalprice);
+    },0)
+    console.log(total,striktotal)
+    document.getElementById("total_price").innerHTML="Cart total value =Rs."+total+"   <strike>Rs."+striktotal+"</strike>";
+}
+catch(er){
+        alert(er);
+        console.log(cartArr)
+    }}
+
+    function deleteToCart(data){
+                cartArr.splice(cartArr.indexOf(data),1);
+                create_table(cartArr);
+                show_price();
+                localStorage.setItem("CartItems",JSON.stringify(cartArr));
+                if(cartArr.length==0){window.location.href="Cart.html"}
+        }
+
+
+    function payment()
+    {
+        
+        window.location.href="payment.html"
+    }
+
+    function home1()
+    {
+        window.location.href="home.html";
+    }
+</script>
